@@ -1,7 +1,150 @@
-<!DOCTYPE html>
-<html>
+<!--
+  Starter single-file GitHub Pages site
+  How to use:
+  1. Replace occurrences of YOUR_NAME, YOUR_GITHUB_USERNAME, and your links below.
+  2. Create a new repository named: YOUR_GITHUB_USERNAME.github.io
+  3. Add this file as index.html at the repo root and push.
+  4. Visit https://YOUR_GITHUB_USERNAME.github.io
+
+  This single file contains HTML, embedded CSS and a tiny JS snippet for smooth scrolling and theme toggle.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YOUR_NAME — portfolio</title>
+  <meta name="description" content="Personal site for YOUR_NAME — projects, blog and contact." />
+  <meta name="author" content="YOUR_NAME" />
+
+  <!-- Open Graph for nicer link previews -->
+  <meta property="og:title" content="YOUR_NAME — portfolio" />
+  <meta property="og:description" content="Portfolio and projects by YOUR_NAME." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7dd3fc; --glass: rgba(255,255,255,0.04);
+      --maxw:1000px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,#071026 0%, #081323 100%); color:#e6eef6; -webkit-font-smoothing:antialiased;
+      display:flex; justify-content:center; padding:32px 18px;
+    }
+    .wrap{width:100%; max-width:var(--maxw)}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:700;color:#022;}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    main{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    aside{padding:18px;background:linear-gradient(180deg,var(--glass),transparent);border-radius:12px;min-height:220px}
+
+    .section{margin-bottom:18px}
+    .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:10px}
+    .meta{font-size:0.85rem;color:var(--muted)}
+
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(125,211,252,0.14);text-decoration:none;color:var(--accent);font-weight:600}
+    footer{margin-top:18px;color:var(--muted);font-size:0.9rem;text-align:center}
+
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.avatar{width:48px;height:48px}}
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar">YA</div>
+        <div>
+          <h1>YOUR_NAME</h1>
+          <p class="lead">Genome analyst • Bioinformatics • Open‑source</p>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#about">About</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="section" id="hero">
+          <h2>Hi — I'm YOUR_NAME.</h2>
+          <p class="meta">I build reproducible pipelines, analyze genomes and teach others how to do reproducible bioinformatics.</p>
+        </section>
+
+        <section class="section" id="projects">
+          <h3>Selected projects</h3>
+          <div class="projects">
+            <article class="card">
+              <strong>Project A — Custom BLASTN tool</strong>
+              <div class="meta">Python • Snakemake • Docker</div>
+              <p class="meta">Short one-line description of what this project does.</p>
+              <a class="btn" href="#">View on GitHub</a>
+            </article>
+
+            <article class="card">
+              <strong>Project B — RNA-seq QC</strong>
+              <div class="meta">R • Shiny • Bioconductor</div>
+              <p class="meta">Interactive QC dashboard for RNA-seq experiments.</p>
+              <a class="btn" href="#">View on GitHub</a>
+            </article>
+
+            <!-- Duplicate and edit these cards for your projects -->
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <h3>About</h3>
+          <p class="meta">Brief bio: current role, institution (optional), and what you love to work on. Keep it 2–3 sentences.</p>
+          <ul class="meta">
+            <li>Skills: Python, R, Snakemake, Conda, Bash</li>
+            <li>Interests: reproducibility, pipelines, teaching</li>
+          </ul>
+        </section>
+
+        <section class="section" id="contact">
+          <h3>Contact</h3>
+          <p class="meta">Email: <a href="mailto:you@example.com">you@example.com</a></p>
+          <p class="meta">GitHub: <a href="https://github.com/YOUR_GITHUB_USERNAME">@YOUR_GITHUB_USERNAME</a></p>
+        </section>
+
+        <footer>
+          Built with ♥ • Replace this template with your own content.
+        </footer>
+      </main>
+
+      <aside>
+        <h4>Quick links</h4>
+        <p class="meta">Add links to CV, publications, or a hosted Shiny app.</p>
+        <hr />
+        <h4>Tips</h4>
+        <ul class="meta">
+          <li>Keep the repo name exactly <code>YOUR_GITHUB_USERNAME.github.io</code> for user pages.</li>
+          <li>To use a custom domain, add <code>CNAME</code> file and set DNS A records to GitHub Pages IPs.</li>
+          <li>Prefer HTTPS links in external embeds.</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // tiny helpers: smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault(); const t=document.querySelector(a.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+  </script>
 </body>
 </html>
