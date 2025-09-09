@@ -1,0 +1,39 @@
+title: "Garima Ayachit, PhD"
+email: "GAYACHIT@gmail.com"
+description: >-
+  Bioinformatics Analyst | NGS | Genomics | Machine Learning
+baseurl: "" 
+url: "https://Garima268.github.io"
+theme: minimal-mistakes-jekyll
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+author:
+  name: "Garima Ayachit"
+  avatar: "/assets/images/profile.jpg"
+  bio: "Bioinformatics Analyst | PhD | Specializing in NGS, RNAseq, Metagenomics & Machine Learning"
+  location: "Canada"
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/garima-ayachit-phd-1363191a/"
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/Garima268"
+    - label: "Email"
+      icon: "fas fa-envelope"
+      url: "mailto:GAYACHIT@gmail.com"
+
+# Navigation
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
