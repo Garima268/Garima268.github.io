@@ -4,7 +4,7 @@ description: >-
   Bioinformatics Analyst | NGS | Genomics | Machine Learning
 baseurl: "" 
 url: "https://Garima268.github.io"
-theme: minimal-mistakes-jekyll
+theme: minima
 
 plugins:
   - jekyll-include-cache
