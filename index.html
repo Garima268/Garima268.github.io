@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garima Ayachit — Bioinformatics & Genomics</title>
+  <style>
+    /* ===== Dark Yellow–Grey–White Professional Theme + Enhancements ===== */
+
+    :root {
+      --bg: #fafafa;
+      --text: #2b2b2b;
+      --card: #ffffff;
+      --accent: #e0b100; /* deep yellow */
+      --accent-dark: #b89300;
+      --grey: #d9d9d9;
+      --border: #e4e4e4;
+      --soft-bg: #fff7d6;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #eaeaea;
+      --card: #2a2a2a;
+      --accent: #e0b100;
+      --accent-dark: #b89300;
+      --grey: #555;
+      --border: #444;
+      --soft-bg: #3a3a3a;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s ease, color 0.3s ease;
+      scroll-behavior: smooth;
+    }
+
+    /* Header: subtle modern gradient */
+    header {
+      background: linear-gradient(135deg, #fff4c2 0%, #f2edd8 100%);
+      color: var(--text);
+      padding: 55px 20px 70px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Animated gradient overlay */
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,230,150,0.15));
+      animation: shimmer 6s infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes shimmer {
+      from { opacity: 0.3; }
+      to { opacity: 0.8; }
+    }
+
+    /* Light/Dark Toggle */
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      color: #222;
+    }
+    .theme-toggle:hover { background: var(--accent-dark); }
+
+    /* Navigation */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+    }
+    nav ul li a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+    nav ul li a:hover { color: var(--accent-dark); }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      object-fit: cover;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cv-button {
+      background: var(--accent);
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+      transition: 0.3s ease;
+    }
+    .cv-button:hover { background: var(--accent-dark); }
+
+    /* Container */
+    .container { max-width: 980px; margin: auto; padding: 25px; }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      margin-bottom: 35px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Skills */
+    .skills span {
+      background: var(--soft-bg);
+      padding: 7px 12px;
+      border-radius: 8px;
+      margin: 6px;
+      color: #6d5200;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    /* Icons */
+    .icon { font-size: 1.3rem; margin-right: 10px; }
+
+    /* Timeline */
+    .timeline { position: relative; margin-left: 20px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 20px 20px 20px 50px;
+      margin-bottom: 25px;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      animation: slideIn 0.7s ease;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 10px;
+      top: 28px;
+      width: 16px;
+      height: 16px;
+      background: var(--accent);
+      border: 3px solid #fff;
+      border-radius: 50%;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Project grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 12px;
+      transition: 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    }
+
+    /* Footer with social icons */
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: var(--text);
+    }
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.6rem;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+    .social-icons a:hover { color: var(--accent-dark); }
+
+    /* Back to Top */
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent);
+      color: #111;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+    #topBtn:hover { background: var(--accent-dark); }
+
+  </style>
+</head>
+<body>
+  <header>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <div style="display: flex; justify-content: center; align-items: center; gap: 40px; max-width: 900px; margin: auto;">
+
+    <!-- LEFT SIDEBAR PROFILE -->
+    <div style="flex: 0 0 180px; text-align: center;">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+      <a href="Garima_Ayachit_CV.pdf" class="cv-button">Download CV</a>
+    </div>
+
+    <!-- RIGHT HEADER TEXT -->
+    <div style="flex: 1; text-align: left;">
+      <h1 style="margin-bottom: 10px;">Garima Ayachit</h1>
+      <p style="font-size: 1.1rem; max-width: 500px;">
+        Bioinformatician • Genomics • Machine Learning • Cancer & Biomarker Research
+      </p>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+  <div class="container fade-in">
+    <section id="about" class="section card">
+      <h2>About Me</h2>
+      <p>Bioinformatics scientist with 8+ years of experience in NGS, multi‑omics, cancer biomarker discovery, machine learning, and pipeline development. Skilled in WGS, WES, RNA‑seq, scRNA‑seq, metagenomics, and HPC workflows.</p>
+    </section>
+
+    <section id="skills" class="section card fade-in">
+      <h2>Core Skills</h2>
+      <div class="skills">
+        <span>WGS / WES / RNA‑seq / scRNA‑seq</span>
+        <span>Variant Calling (GATK, DeepVariant)</span>
+        <span>Machine Learning</span>
+        <span>Cancer Bioinformatics</span>
+        <span>Dual RNA‑seq</span>
+        <span>Python • R • Linux</span>
+        <span>HPC • Nextflow</span>
+        <span>Metagenomics</span>
+      </div>
+    </section>
+
+    <section id="experience" class="section card fade-in">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3><span class="icon">💼</span>Postdoctoral Fellow — INRS (2022–2023)</h3>
+          <p>Dual RNA-seq, metagenomics, ANNOTATOR-RNAtor development, HPC workflows.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3><span class="icon">🧬</span>Research Bioinformatician — BaseSolve (2020–2021)</h3>
+          <p>WGS/WES, RNA-seq, AWS/HPC deployments, amplicon pipelines.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3><span class="icon">🔬</span>Research Associate — GBRC (2016–2019)</h3>
+          <p>Plant omics, cancer biomarker discovery (TCGA), miRNA-seq, collaborations.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h3><span class="icon">🐾</span>Senior Research Fellow — GSBTM (2014–2016)</h3>
+          <p>Lion genome, biodiversity genomics, metagenomics.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section card fade-in">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>ANNOTATOR-RNAtor</h3>
+          <p>Large‑scale transcriptome workflow integrating BLAST, BWA, Prokka, NetworkX.</p>
+          <a href="https://github.com/BactSymEvol/Annotator-RNAtor">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>miRDetect</h3>
+          <p>Machine‑learning pipeline for novel microRNA discovery using sequence features.</p>
+          <a href="https://github.com/Garima268/miRDetect">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section card fade-in">
+      <h2>Selected Publications</h2>
+      <ul>
+        <li>Ayachit, G. et al. miRDetect (Genomics, 2020)</li>
+        <li>Ayachit, G. et al. Plant miRNA ML (Current Bioinformatics, 2020)</li>
+        <li>Ayachit, G. et al. Gymnema transcriptome (Scientific Reports, 2019)</li>
+        <li>Ayachit, G. Oral cancer biomarkers (Oncotarget, 2019)</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section card fade-in">
+      <h2>Contact</h2>
+      <p>Email: GAYACHIT@GMAIL.COM<br>GitHub: github.com/Garima268<br>LinkedIn: linkedin.com/in/garima-ayachit-phd-1363191a</p>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 Garima Ayachit — GitHub Pages Portfolio
+  </footer>
+</body>
+</html>
